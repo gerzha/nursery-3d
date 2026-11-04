@@ -40,6 +40,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .lbl small{display:block;font:400 10.5px/1.25 var(--f-body);color:var(--muted)}
 .lbl.obj{color:var(--ink)}
 .toolbar{position:absolute;top:12px;left:max(12px,env(safe-area-inset-left,0px));right:12px;display:flex;flex-wrap:wrap;gap:8px;pointer-events:none}
+.tools{display:contents}
 .seg{display:flex;flex-wrap:wrap;pointer-events:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:3px;gap:2px}
 .seg button{appearance:none;border:0;background:transparent;color:var(--ink);font:500 13px/1 var(--f-body);padding:8px 11px;border-radius:6px;cursor:pointer}
 .seg button:hover{background:var(--line)}
@@ -83,8 +84,18 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
   .app{grid-template-columns:1fr;height:auto}
   .stage{height:64vh;min-height:360px}
   .panel{border-left:0;border-top:1px solid var(--line)}
-  .seg button{padding:7px 9px;font-size:12.5px}
+  .seg button{padding:7px 9px;font-size:12.5px;white-space:nowrap}
   .hint{display:none}
+  /* phones: variant picker on its own line, all view/layer buttons in one row that scrolls sideways; labels smaller */
+  .stage{height:72svh;min-height:380px}
+  .toolbar{top:8px;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));gap:6px;flex-direction:column;flex-wrap:nowrap}
+  .vsel{width:100%;box-sizing:border-box}
+  .vsel select{flex:1;max-width:none}
+  .tools{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;pointer-events:auto;touch-action:pan-x;scrollbar-width:none;-webkit-mask-image:linear-gradient(to right,#000 88%,transparent);mask-image:linear-gradient(to right,#000 88%,transparent);padding-right:24px}
+  .tools::-webkit-scrollbar{display:none}
+  .seg{flex:none;flex-wrap:nowrap}
+  .lbl{font-size:11px;padding:1px 5px 2px}
+  .lbl small{font-size:9.5px}
 }
 </style>
 
@@ -93,6 +104,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     <div class="labels" id="labels"></div>
     <div class="toolbar">
       <label class="vsel" for="variant-select"><span>Вариант</span><select id="variant-select"></select></label>
+      <div class="tools">
       <div class="seg" role="group" aria-label="Вид">
         <button type="button" id="v-orbit" data-view="orbit" aria-pressed="true">Обзор</button>
         <button type="button" id="v-plan" data-view="plan" aria-pressed="false">План</button>
@@ -107,6 +119,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
         <button type="button" id="t-grid" aria-pressed="true">Сетка 50 см</button>
         <button type="button" id="t-trundle" aria-pressed="false">Выдвижное место</button>
         <button type="button" id="t-clean" aria-pressed="false" title="Скрыть все размеры, подписи, сетку и дугу двери">Без подписей</button>
+      </div>
       </div>
     </div>
     <p class="hint">Тянуть: вращать · колесо или щипок: масштаб · правая кнопка или два пальца: сдвиг</p>
@@ -2850,6 +2863,9 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     document.getElementById('t-grid').setAttribute('aria-pressed', String(grid.visible));
     e.currentTarget.setAttribute('aria-pressed', String(cleanView));
   });
+  // on phones start without labels and dimensions: the model stays readable; the same button brings them back
+  const cleanBtn = document.getElementById('t-clean');
+  if (cleanBtn.click && matchMedia('(max-width: 820px)').matches) cleanBtn.click();
   document.getElementById('t-trundle').addEventListener('click', e => {
     trundleOut = !trundleOut;
     e.currentTarget.setAttribute('aria-pressed', String(trundleOut));
@@ -2899,6 +2915,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     persp.aspect = w / h;
+    persp.zoom = Math.min(1, persp.aspect / 1.35);   // portrait phones: widen the view so the room is not cropped at the sides
     persp.updateProjectionMatrix();
     fitOrtho();
   }
