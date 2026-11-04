@@ -117,8 +117,13 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
       <div class="seg" role="group" aria-label="Слои">
         <button type="button" id="t-dims" aria-pressed="true">Размеры</button>
         <button type="button" id="t-grid" aria-pressed="true">Сетка 50 см</button>
-        <button type="button" id="t-trundle" aria-pressed="false">Выдвижное место</button>
         <button type="button" id="t-clean" aria-pressed="false" title="Скрыть все размеры, подписи, сетку и дугу двери">Без подписей</button>
+      </div>
+      <div class="seg" role="group" aria-label="Открыть">
+        <button type="button" id="t-trundle" aria-pressed="false">Выдвижное место</button>
+        <button type="button" id="t-door-open" aria-pressed="false" title="Открыть или закрыть дверь в комнату">Дверь</button>
+        <button type="button" id="t-ward-open" aria-pressed="false" title="Открыть или закрыть шкаф в нише и нижние дверцы мебели">Шкафы</button>
+        <button type="button" id="t-upper-open" aria-pressed="false" title="Открыть или закрыть верхние шкафы" hidden>Верхние шкафы</button>
       </div>
       </div>
     </div>
@@ -149,7 +154,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
       <div><dt>Дверной проём</dt><dd>920</dd></div>
       <div><dt>Радиатор под окном</dt><dd>800 × 500</dd></div>
     </dl>
-    <p class="note">Дверь открывается внутрь комнаты, петли со стороны спальни. Зона открывания отмечена на полу синим.</p>
+    <p class="note">Дверь открывается внутрь комнаты, петли со стороны спальни. Зона открывания отмечена на полу синим, кнопка «Дверь» открывает её.</p>
 
     <h2>Стены, мм</h2>
     <dl class="spec">
@@ -176,7 +181,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
       <li><span>Шкаф в нише, до потолка</span><span>640 × 1790 × 2620</span></li>
       <li><span>Кровать ALVIN 02 MN, Riviera 74</span><span>1010 × 2090 × 810</span></li>
     </ul>
-    <p class="note">Кровать стоит вдоль длинной стены, изголовьем к окну, в 150 мм от стены с окном. Так выдвижное место (1850 мм в разложенном виде) проходит мимо радиатора. До шкафа остаётся 740 мм, створки открываются. Кнопка «Выдвижное место» показывает кровать разложенной.</p>
+    <p class="note">Кровать стоит вдоль длинной стены, изголовьем к окну, в 150 мм от стены с окном. Так выдвижное место (1850 мм в разложенном виде) проходит мимо радиатора. До шкафа остаётся 740 мм, створки открываются (кнопка «Шкафы»). Кнопка «Выдвижное место» показывает кровать разложенной.</p>
 
     <div id="variant-panel"></div>
 
@@ -186,17 +191,17 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
 
 <template id="vp-1">
     <h2>Вариант 1 · Портал в цвет стены</h2>
-    <p class="note">Левая стена окрашена в тот же серо-голубой, что и стена у кровати, мебель — на тон темнее, остальные стены остаются тёплым грейжем; на дверцах тонкие рамки молдинга, как над кроватью, и маленькие латунные ручки. Всё стоит одной стенкой в пропорции 1 : 2 : 3 под общим карнизом на высоте верха двери (2110), полки везде на линиях 900, 1290 и 1680: колонна для игрушек и книг у двери, аквариум в открытом портале на усиленной тумбе и письменный стол в углу, свет из окна падает справа. У окна стол кончается чистовой боковиной в 160 мм от стены: в этом зазоре за карнизом-коробом висит римская штора, а середина комнаты и радиатор свободны. Детского в отделке нет: к 12 годам поменяются только вещи на полках, а стул вырастет вместе с ним.</p>
+    <p class="note">Левая стена окрашена в тот же серо-голубой, что и стена у кровати, мебель — на тон темнее, остальные стены остаются тёплым грейжем; на дверцах тонкие рамки молдинга, как над кроватью, и маленькие латунные ручки. Всё стоит одной стенкой в пропорции 1 : 2 : 3 под общим карнизом на высоте верха двери (2110), полки везде на линиях 900, 1290 и 1680: закрытая колонна для игрушек и книг у двери, аквариум в открытом портале на усиленной тумбе и письменный стол в углу под закрытым навесным шкафом, свет из окна падает справа. Кнопки «Шкафы» и «Верхние шкафы» над моделью открывают дверцы. У окна стол кончается чистовой боковиной в 160 мм от стены: в этом зазоре за карнизом-коробом висит римская штора, а середина комнаты и радиатор свободны. Детского в отделке нет: к 12 годам поменяются только вещи на полках, а стул вырастет вместе с ним.</p>
     <div class="pal"><span><i style="background:#B3BFCC"></i>Серо-голубой: левая стена</span><span><i style="background:#97A5B5"></i>На тон темнее: мебель</span><span><i style="background:#DCD6CE"></i>Тёплый грейж: остальные стены</span><span><i style="background:#B89A74"></i>Дуб: столешницы</span><span><i style="background:#B08D4F"></i>Латунь: ручки и свет</span><span><i style="background:#3E4B5C"></i>Чернильный: корешки книг</span></div>
     <h2>На заказ</h2>
     <ul class="furn">
-      <li><span>Колонна у двери: дверца до 900 с молдингом, 2 полки</span><span>333 × 350 × 2052</span></li>
-      <li><span>Тумба под аквариум на 80 кг: 2 дверцы с молдингом, столешница из дуба, регулируемые ножки</span><span>667 × 400 × 600</span></li>
+      <li><span>Колонна у двери: 2 дверцы с молдингом (шов на 880), 4 полки</span><span>333 × 350 × 2052</span></li>
+      <li><span>Тумба под аквариум на 80 кг: 2 дверцы с молдингом, стойка по центру, полка, столешница из дуба, регулируемые ножки</span><span>667 × 400 × 600</span></li>
       <li><span>Портал над тумбой: наличник 30 мм с валиком, полка на 1680</span><span>667 × 300 × 1452</span></li>
       <li><span>Латунная подсветка над аквариумом, 345 мм над крышкой</span><span>400 × 165 × 40</span></li>
       <li><span>Розетка в портале, справа над крышкой аквариума</span><span>на 1045 от пола</span></li>
       <li><span>Стол в угол: дубовая столешница 30 мм, 2 боковины до пола (правая — чистовой торец к окну), тонкий ящик 950 × 85</span><span>1000 × 600 × 740</span></li>
-      <li><span>Полки над столом: 2 боковины, полки на 1290 и 1680, LED-лента под нижней</span><span>1000 × 350 × 1312</span></li>
+      <li><span>Шкаф над столом: 2 дверцы с молдингом (1265–2049), дно на 1290, полка на 1680, LED-лента под дном</span><span>1000 × 350 × 1312</span></li>
       <li><span>Общий карниз, верх на 2110, у окна заканчивается вровень с торцом</span><span>2016 × 366 × 58</span></li>
       <li><span>Рейка-молдинг до двери на той же линии</span><span>785 × 22 × 26</span></li>
       <li><span>Покраска левой стены в цвет стены у кровати</span><span>2975 × 2620</span></li>
@@ -560,6 +565,21 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     return m;
   }
 
+  // ---- hinged leaves: the room door, the niche wardrobe and any variant doors.
+  //      hinge(kind, x, z, angle, parent) returns a group that takes plain world-mm geometry (boxMM etc.); it turns about the vertical
+  //      axis through (x, z) by `angle` (rad, about +y) when its kind is open. Kinds and their toolbar buttons:
+  //      'door' — «Дверь», 'ward' — «Шкафы» (wardrobe in the niche + lower doors), 'upper' — «Верхние шкафы» (shown only if a variant has them).
+  //      A leaf whose free edge lies toward +x from the hinge opens with -PI/2, toward -x with +PI/2 (fronts facing +z).
+  const hinges = [];
+  const openKind = { door: false, ward: false, upper: false };
+  function hinge(kind, x, z, angle, parent) {
+    const pivot = new THREE.Group(), leaf = new THREE.Group();
+    pivot.position.set(M(x), 0, M(z)); leaf.position.set(-M(x), 0, -M(z));
+    pivot.add(leaf); parent.add(pivot);
+    hinges.push({ kind, pivot, angle });
+    return leaf;
+  }
+
   // ---- floor (L-shaped: corridor bump of 645 × 1360 at the door)
   const PLAN = [[645, 0], [3620, 0], [3620, 3150], [0, 3150], [0, 1360], [645, 1360]];
   // herringbone laminate, grey-beige oak like the floor in the flat: planks 600 × 120 mm laid at 45°
@@ -740,14 +760,16 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     boxMM(645, 661, 2050, 2140, 170, 970, doorMat, g);
     boxMM(661, 663, 0, 2140, 168, 170, grooveMat, g, false);
     boxMM(661, 663, 0, 2140, 970, 972, grooveMat, g, false);
-    // leaf with two panels: stiles 125, top rail 150, middle rail 120 (610..730), bottom rail 155
-    boxMM(600, 640, 0, 1995, 172, 968, doorMat, g);
+    // leaf with two panels: stiles 125, top rail 150, middle rail 120 (610..730), bottom rail 155.
+    // Hinged on the room face at the bedroom-side jamb; open (button «Дверь») it stands along the left wall, room face toward the board.
+    const leaf = hinge('door', 640, 172, Math.PI / 2, g);
+    boxMM(600, 640, 0, 1995, 172, 968, doorMat, leaf);
     const panel = (y0, y1) => {
       const z0 = 297, z1 = 843;
       const fr = (i, w, x1, mat) => {
         const a = z0 + i, b = z1 - i, c = y0 + i, d = y1 - i;
-        boxMM(640, x1, c, c + w, a, b, mat, g, false); boxMM(640, x1, d - w, d, a, b, mat, g, false);
-        boxMM(640, x1, c + w, d - w, a, a + w, mat, g, false); boxMM(640, x1, c + w, d - w, b - w, b, mat, g, false);
+        boxMM(640, x1, c, c + w, a, b, mat, leaf, false); boxMM(640, x1, d - w, d, a, b, mat, leaf, false);
+        boxMM(640, x1, c + w, d - w, a, a + w, mat, leaf, false); boxMM(640, x1, c + w, d - w, b - w, b, mat, leaf, false);
       };
       fr(0, 3, 641, grooveMat);          // shadow groove around the panel
       fr(3, 14, 644, stepMat);           // stepped frame: three steps, the middle one stands proud
@@ -758,9 +780,9 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     panel(730, 1845);
     panel(155, 610);
     // black square rosette and lever, handle on the long-wall side of the leaf
-    boxMM(640, 649, 972, 1028, 875, 931, blackMat, g, false);
-    boxMM(649, 668, 993, 1007, 896, 910, blackMat, g, false);
-    boxMM(662, 676, 993, 1007, 770, 910, blackMat, g, false);
+    boxMM(640, 649, 972, 1028, 875, 931, blackMat, leaf, false);
+    boxMM(649, 668, 993, 1007, 896, 910, blackMat, leaf, false);
+    boxMM(662, 676, 993, 1007, 770, 910, blackMat, leaf, false);
   })(wallById.door.full);
 
   // door swing zone on the floor
@@ -832,15 +854,32 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
   // ---- furniture
   const furn = new THREE.Group(); scene.add(furn);
 
-  // wardrobe in the niche to the right of the door: 640 deep, full niche length 1790, floor to ceiling, three doors
+  // wardrobe in the niche to the right of the door: 640 deep, full niche length 1790, floor to ceiling.
+  // Three drawers 0..423 across the width; above them three hinged doors (20 thick, faces at 640): the left one hinges on the door side,
+  // the middle and right ones on the long-wall side. Inside: hanging rails in the outer sections, shelves in the middle (button «Шкафы»).
   const wardMat = new THREE.MeshStandardMaterial({ color: 0xe4dfd7, roughness: 0.7 });
+  const wardIn = new THREE.MeshStandardMaterial({ color: 0xd3cdc4, roughness: 0.8 });
   const seamMat = new THREE.MeshStandardMaterial({ color: 0x8f897f, roughness: 0.8 });
-  boxMM(0, 640, 0, H, 1360, 3150, wardMat, furn);
-  [1957, 2553].forEach(z => boxMM(640, 642, 0, H, z - 2, z + 2, seamMat, furn, false));
+  boxMM(0, 640, 0, 423, 1360, 3150, wardMat, furn);
+  [1957, 2553].forEach(z => boxMM(640, 642, 0, 423, z - 2, z + 2, seamMat, furn, false));
   boxMM(640, 642, 423, 427, 1360, 3150, seamMat, furn, false);
+  boxMM(0, 620, 423, 441, 1360, 3150, wardIn, furn);                                        // carcass: bottom, top, back, sides, partitions
+  boxMM(0, 620, 2602, H, 1360, 3150, wardIn, furn);
+  boxMM(0, 12, 441, 2602, 1360, 3150, wardIn, furn);
+  [[1360, 1378], [1948, 1966], [2544, 2562], [3132, 3150]].forEach(([a, b]) => boxMM(12, 620, 441, 2602, a, b, wardIn, furn));
+  [[1378, 1948], [2562, 3132]].forEach(([a, b]) => {                                        // outer sections: hat shelf + rail
+    boxMM(12, 600, 2150, 2168, a, b, wardIn, furn);
+    const rail = new THREE.Mesh(new THREE.CylinderGeometry(M(12), M(12), M(b - a), 16), metalMat);
+    rail.rotation.x = Math.PI / 2; rail.position.set(M(310), M(2080), M((a + b) / 2)); furn.add(rail);
+  });
+  [800, 1150, 1500, 1850, 2150].forEach(y => boxMM(12, 600, y, y + 18, 1966, 2544, wardIn, furn));   // middle section: shelves
   const knobGeo = new THREE.CylinderGeometry(0.013, 0.013, 0.022, 20);
   knobGeo.rotateZ(Math.PI / 2);
-  [1925, 1989, 2585].forEach(z => { const k = new THREE.Mesh(knobGeo, metalMat); k.position.set(M(651), M(1000), M(z)); furn.add(k); });
+  [[1362, 1955, 1362, Math.PI / 2, 1925], [1959, 2551, 2551, -Math.PI / 2, 1989], [2555, 3148, 3148, -Math.PI / 2, 2585]].forEach(([z0, z1, zh, ang, zk]) => {
+    const leaf = hinge('ward', 640, zh, ang, furn);
+    boxMM(620, 640, 427, 2618, z0, z1, wardMat, leaf);
+    const k = new THREE.Mesh(knobGeo, metalMat); k.position.set(M(651), M(1000), M(zk)); leaf.add(k);
+  });
   addLabel('Шкаф 640 × 1790<small>в нише, до потолка</small>', new THREE.Vector3(M(660), M(1700), M(2255)), 'obj', null);
 
   // bed ALVIN 02 MN (paczkameble.pl): 1010 × 2090 × 810, fabric Riviera 74; head to the window wall, back on the long wall
@@ -992,14 +1031,24 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     const A0 = 1460, A1 = 1793, D0 = 2460, D1 = 3460, AD = 350, G = 22;
     const B0 = A1, B1 = D0, BC = (B0 + B1) / 2, DC = (D0 + D1) / 2;
 
-    // ---- column at the door end: 333 × 350 × 2052, gables to the floor, recessed plinth, one inset door up to the 900 line, shelves on 1290 / 1680
+    // ---- column at the door end: 333 × 350 × 2052, gables to the floor, recessed plinth, two inset doors hinged on the door side with a 3 mm
+    //      seam at 880: the lower one («Шкафы») up to the 900 line, the upper one («Верхние шкафы») up to the top board; shelves 470 / 900 / 1290 / 1680
     boxMM(A0, A0 + G, 0, 2052, 0, AD, paint, furn);
     boxMM(A1 - G, A1, 0, 2052, 0, AD, paint, furn);
     boxMM(A0 + G, A1 - G, 0, 80, 0, AD - 50, paint, furn);
-    boxMM(A0 + G + 3, A1 - G - 3, 83, 877, AD - 18, AD, paint, furn);
-    moldFront(A0 + G + 3, A1 - G - 3, 83, 877, AD, furn, 40);
-    knob(A1 - G - 40, 740, AD, furn);
-    [900, 1290, 1680].forEach(t => boxMM(A0 + G, A1 - G, t - 22, t, 0, AD - 15, paint, furn));
+    boxMM(A0 + G, A1 - G, 80, 98, 0, AD - 20, paint, furn);
+    const colLow = hinge('ward', A0 + G + 3, AD, -Math.PI / 2, furn);
+    boxMM(A0 + G + 3, A1 - G - 3, 83, 877, AD - 18, AD, paint, colLow);
+    moldFront(A0 + G + 3, A1 - G - 3, 83, 877, AD, colLow, 40);
+    knob(A1 - G - 40, 740, AD, colLow);
+    const colUp = hinge('upper', A0 + G + 3, AD, -Math.PI / 2, furn);
+    boxMM(A0 + G + 3, A1 - G - 3, 880, 2049, AD - 18, AD, paint, colUp);
+    moldFront(A0 + G + 3, A1 - G - 3, 880, 2049, AD, colUp, 40);
+    knob(A1 - G - 40, 1020, AD, colUp);
+    [488, 900, 1290, 1680].forEach(t => boxMM(A0 + G, A1 - G, t - 22, t, 0, AD - 20, paint, furn));
+    const toyBox = std(0xd8cfc0, 0.9);                                           // fabric boxes for toys in the lower part
+    boxMM(A0 + G + 15, A1 - G - 15, 98, 340, 30, AD - 40, toyBox, furn);
+    boxMM(A0 + G + 15, A1 - G - 15, 488, 730, 30, AD - 40, toyBox, furn);
     books(A0 + 32, 900, AD - 35, 230, [[34, 300, 0], [28, 285, 7], [40, 310, 3], [30, 270, 1], [26, 292, 0]], furn);
     stack(A0 + 203, A0 + 300, 900, AD - 35, 240, [[30, 4], [24, 2], [36, 0]], furn);
     books(A0 + 32, 1290, AD - 35, 220, [[30, 250, 1], [26, 236, 2], [34, 262, 6], [28, 244, 4]], furn);
@@ -1011,8 +1060,14 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     boxMM(B0, B0 + 25, 0, BT - 30, 0, BD - 18, paint, furn);
     boxMM(B1 - 25, B1, 0, BT - 30, 0, BD - 18, paint, furn);
     boxMM(B0 + 25, B1 - 25, 0, 80, 0, BD - 50, paint, furn);
-    [[B0 + 1, BC - 1.5], [BC + 1.5, B1 - 1]].forEach(([a, b]) => { boxMM(a, b, 83, BT - 33, BD - 18, BD, paint, furn); moldFront(a, b, 83, BT - 33, BD, furn, 40); });
-    knob(BC - 30, 480, BD, furn); knob(BC + 30, 480, BD, furn);
+    // doors hinged on the gables («Шкафы»); inside: bottom, a centre post under the tank and a shelf for food, nets and filter media
+    [[B0 + 1, BC - 1.5, B0 + 1, -Math.PI / 2, BC - 30], [BC + 1.5, B1 - 1, B1 - 1, Math.PI / 2, BC + 30]].forEach(([a, b, xh, ang, xk]) => {
+      const lf = hinge('ward', xh, BD, ang, furn);
+      boxMM(a, b, 83, BT - 33, BD - 18, BD, paint, lf); moldFront(a, b, 83, BT - 33, BD, lf, 40); knob(xk, 480, BD, lf);
+    });
+    boxMM(B0 + 25, B1 - 25, 80, 98, 0, BD - 20, paint, furn);
+    boxMM(BC - 12, BC + 12, 98, BT - 30, 0, BD - 20, paint, furn);
+    boxMM(B0 + 25, B1 - 25, 300, 318, 0, BD - 20, paint, furn);
     boxMM(B0, B1, BT - 30, BT, 0, BD + 10, oak, furn);
 
     // ---- AQUAEL LEDDY Day & Night 60: tank 600 × 300 × 300 + LED lid, 355 overall, centred in the portal, 50 off the wall
@@ -1059,11 +1114,17 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     boxMM(D0 + G + 3, D1 - G - 3, 624, 707, 582, 598, paint, furn);
     knob(DC - 250, 666, 598, furn); knob(DC + 250, 666, 598, furn);
 
-    // ---- hutch over the desk: gables 350 deep up to the top board, two 300-deep shelves on the 1290 / 1680 lines, LED strip under the lower one
+    // ---- wall cabinet over the desk: gables 350 deep up to the top board, bottom on the 1290 line (LED strip under it lights the desk),
+    //      shelf on 1680, two inset doors 1265..2049 with molding frames, hinged on the gables, knobs low at the centre seam («Верхние шкафы»)
     boxMM(D0, D0 + G, 740, 2052, 0, AD, paint, LW);
     boxMM(D1 - G, D1, 740, 2052, 0, AD, paint, LW);
-    [1290, 1680].forEach(t => boxMM(D0 + G, D1 - G, t - 25, t, 0, 300, paint, LW));
+    boxMM(D0 + G, D1 - G, 1265, 1290, 0, AD - 20, paint, LW);
+    boxMM(D0 + G, D1 - G, 1655, 1680, 0, 300, paint, LW);
     boxMM(D0 + 50, D1 - 50, 1258, 1265, 268, 290, glow, LW, false);
+    [[D0 + G + 3, DC - 1.5, D0 + G + 3, -Math.PI / 2, DC - 40], [DC + 1.5, D1 - G - 3, D1 - G - 3, Math.PI / 2, DC + 40]].forEach(([a, b, xh, ang, xk]) => {
+      const lf = hinge('upper', xh, AD, ang, LW);
+      boxMM(a, b, 1265, 2049, AD - 18, AD, paint, lf); moldFront(a, b, 1265, 2049, AD, lf, 40); knob(xk, 1330, AD, lf);
+    });
     // two TRUMMIS rattan baskets (350 × 250 × 200, turned sideways) at the ends of the lower shelf, books between
     const rattan = std(0xcbb084, 0.9), rim = std(0xa88a5e, 0.9);
     [[D0 + G + 8, D0 + G + 358], [D1 - G - 358, D1 - G - 8]].forEach(([a, b]) => {
@@ -1107,7 +1168,8 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     const l1 = new THREE.PointLight(0xffe2b0, 0.25, 1.3, 2); l1.position.set(M(DC), M(1200), M(260)); scene.add(l1);
     const l2 = new THREE.PointLight(0xffe2b0, 0.2, 1.1, 2); l2.position.set(M(BC), M(1420), M(200)); scene.add(l2);
 
-    addLabel('Колонна 333 × 350<small>дверца до линии 900</small>', new THREE.Vector3(M((A0 + A1) / 2), M(1480), M(370)), 'obj', null);
+    addLabel('Колонна 333 × 350<small>2 дверцы, шов на 880</small>', new THREE.Vector3(M((A0 + A1) / 2), M(1480), M(370)), 'obj', null);
+    addLabel('Шкаф над столом 1000 × 350<small>2 дверцы, дно на 1290</small>', new THREE.Vector3(M(DC), M(1700), M(380)), 'obj', wallById.bed);
     addLabel('Аквариум 54 л в портале<small>тумба 667 × 400 × 600</small>', new THREE.Vector3(M(BC), M(1230), M(420)), 'obj', null);
     addLabel('Стол в угол 1000 × 600<small>дуб, высота 740; торец в 160 от окна</small>', new THREE.Vector3(M(DC), M(880), M(640)), 'obj', null);
     addLabel('Карниз на 2110<small>по линии верха двери</small>', new THREE.Vector3(M(2800), M(2200), M(380)), 'obj', wallById.bed);
@@ -2871,6 +2933,16 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     e.currentTarget.setAttribute('aria-pressed', String(trundleOut));
     if (reduceMotion) trundle.position.z = trundleOut ? TRUNDLE_OUT : 0;
   });
+  // open / close buttons for hinged leaves; a button without leaves of its kind in this variant stays hidden
+  [['t-door-open', 'door'], ['t-ward-open', 'ward'], ['t-upper-open', 'upper']].forEach(([id, kind]) => {
+    const b = document.getElementById(id);
+    b.hidden = !hinges.some(h => h.kind === kind);
+    b.addEventListener('click', e => {
+      openKind[kind] = !openKind[kind];
+      e.currentTarget.setAttribute('aria-pressed', String(openKind[kind]));
+      if (reduceMotion) hinges.forEach(h => { if (h.kind === kind) h.pivot.rotation.y = openKind[kind] ? h.angle : 0; });
+    });
+  });
 
   // ---- dollhouse: from outside, walls between the camera and the room drop to a low cut
   function insidePlan(x, z) {
@@ -2939,7 +3011,10 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
       persp.updateProjectionMatrix();
       if (k === 1) tween = null;
     }
-    if (!reduceMotion) { const tz = trundleOut ? TRUNDLE_OUT : 0; trundle.position.z += (tz - trundle.position.z) * 0.12; }
+    if (!reduceMotion) {
+      const tz = trundleOut ? TRUNDLE_OUT : 0; trundle.position.z += (tz - trundle.position.z) * 0.12;
+      for (const h of hinges) { const a = openKind[h.kind] ? h.angle : 0; h.pivot.rotation.y += (a - h.pivot.rotation.y) * 0.1; }
+    }
     controls.update();
     updateWalls();
     renderer.render(scene, cam);
