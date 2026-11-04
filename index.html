@@ -106,6 +106,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
         <button type="button" id="t-dims" aria-pressed="true">Размеры</button>
         <button type="button" id="t-grid" aria-pressed="true">Сетка 50 см</button>
         <button type="button" id="t-trundle" aria-pressed="false">Выдвижное место</button>
+        <button type="button" id="t-clean" aria-pressed="false" title="Скрыть все размеры, подписи, сетку и дугу двери">Без подписей</button>
       </div>
     </div>
     <p class="hint">Тянуть: вращать · колесо или щипок: масштаб · правая кнопка или два пальца: сдвиг</p>
@@ -2835,6 +2836,20 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     grid.visible = !grid.visible;
     e.currentTarget.setAttribute('aria-pressed', String(grid.visible));
   });
+  // clean view: hides every dimension, label, the grid and the door arc at once; pressing again restores the previous state
+  let cleanView = false, beforeClean = null;
+  document.getElementById('t-clean').addEventListener('click', e => {
+    cleanView = !cleanView;
+    if (cleanView) {
+      beforeClean = { dims: showDims, grid: grid.visible };
+      showDims = false; dims.visible = false; grid.visible = false; swing.visible = false; arc.visible = false;
+    } else {
+      showDims = beforeClean.dims; dims.visible = showDims; grid.visible = beforeClean.grid; swing.visible = true; arc.visible = true;
+    }
+    document.getElementById('t-dims').setAttribute('aria-pressed', String(showDims));
+    document.getElementById('t-grid').setAttribute('aria-pressed', String(grid.visible));
+    e.currentTarget.setAttribute('aria-pressed', String(cleanView));
+  });
   document.getElementById('t-trundle').addEventListener('click', e => {
     trundleOut = !trundleOut;
     e.currentTarget.setAttribute('aria-pressed', String(trundleOut));
@@ -2869,7 +2884,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
   function updateLabels() {
     const w = stage.clientWidth, h = stage.clientHeight;
     for (const L of labels) {
-      let show = (L.cat !== 'dim' || showDims) && !(L.owner && L.owner.hidden) && (!L.when || L.when());
+      let show = !cleanView && (L.cat !== 'dim' || showDims) && !(L.owner && L.owner.hidden) && (!L.when || L.when());
       if (show) {
         lp.copy(L.pos).project(cam);
         show = lp.z > -1 && lp.z < 1 && Math.abs(lp.x) < 1.1 && Math.abs(lp.y) < 1.1;
