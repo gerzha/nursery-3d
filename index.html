@@ -843,13 +843,13 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
 
 
 
-  // ---- window wall as built (client's photos): ceiling pelmet box along the whole wall, 160 from the wall, 100 wide;
+  // ---- window wall as built (client's photos): ceiling pelmet board along the whole wall, 20 thick, 100 high, 160 from the wall;
   // the Roman blind hangs in the 160 gap behind it, so nothing may stand closer than 160 to this wall
   (function windowDressing(g) {
     const pel = new THREE.MeshStandardMaterial({ color: 0xf4f3f0, roughness: 0.7 });
     const linen = new THREE.MeshStandardMaterial({ color: 0xd8cfc0, roughness: 1 });
     const band = new THREE.MeshStandardMaterial({ color: 0x34536b, roughness: 0.9 });
-    boxMM(3360, 3460, 2520, 2620, 0, 3150, pel, g);
+    boxMM(3440, 3460, 2520, 2620, 0, 3150, pel, g);
     const Z0 = 785, Z1 = 2340, BW = 45, BI = 60;            // blind 1555 wide, blue band 45 wide, 60 in from the edges
     const parts = [[2380, 2520, 3538], [2300, 2380, 3522], [2220, 2300, 3512], [2140, 2220, 3500]];   // raised: flat top + three folds
     parts.forEach(([y0, y1, xf], i) => {
@@ -859,7 +859,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
       if (i === parts.length - 1) boxMM(xf - 2, xf, y0 + 25, y0 + 25 + BW, Z0 + BI, Z1 - BI, band, g, false);
     });
   })(wallById.win.full);
-  addLabel('Карниз-короб 100 мм<small>в 160 мм от стены, вдоль всей стены</small>', new THREE.Vector3(M(3410), M(2650), M(400)), 'obj', wallById.win);
+  addLabel('Карниз: доска 20 × 100 мм<small>в 160 мм от стены, вдоль всей стены</small>', new THREE.Vector3(M(3450), M(2650), M(400)), 'obj', wallById.win);
   addLabel('Римская штора (уже есть)<small>лён с синей каймой</small>', new THREE.Vector3(M(3520), M(2080), M(1560)), 'obj', wallById.win);
 
   // ---- ceiling lamp as in the room: brass, six white glass globes (Beliani MARITSA, 520 × 280), near the room centre
@@ -2092,7 +2092,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     const carcass = [cash, cash, cash, cash, seam, cash];
 
     const X0 = 1460, X1 = 3460, N = 6, MOD = (X1 - X0) / N, D = 380, FZ = 360, PL = 80, LOW = 700, TOP = 1800, DESK = 730,
-          UP = 2520, S = 1.5, T = 18, PEL = 3360;                  // UP = underside of the window-wall pelmet
+          UP = 2520, S = 1.5, T = 18, PEL = 3440;                  // UP = underside of the window-wall pelmet
     const mx = i => X0 + i * MOD;                                   // 1460 1793 2127 2460 2793 3127 3460
     const ex = (i, side) => (i === 0 || i === N ? mx(i) : mx(i) + side * S);
     const front = (i, j, y0, y1) => boxMM(ex(i, 1), ex(j, -1), y0, y1, FZ, D, cash, V);
@@ -2102,7 +2102,7 @@ h2{margin:26px 0 6px;font:600 11px/1.4 var(--f-body);letter-spacing:.08em;text-t
     boxMM(mx(2), mx(3), PL, TOP, 0, FZ, carcass, V);    // column between the niches
     boxMM(mx(5), mx(6), PL, LOW, 0, FZ, carcass, V);    // drawer pedestal under the desk
     boxMM(mx(0), mx(6), TOP, UP, 0, FZ, carcass, V);    // upper band, full length, up to the pelmet line
-    boxMM(X0, PEL, UP, H, 0, D, cash, V);               // 100 filler to the ceiling; the pelmet itself covers the last 100
+    boxMM(X0, PEL, UP, H, 0, D, cash, V);               // 100 filler to the ceiling, up to the 20 mm pelmet board
     boxMM(X0, X0 + T, 0, UP, 0, FZ, cash, V);           // end panel at the door end
     boxMM(X1 - T, X1, 0, UP, 0, FZ, cash, V);           // end panel facing the window (160 from the window wall)
     boxMM(X1 - T, X1, 0, PL, FZ, D, cash, V);           //   …its front edge down past the plinth
